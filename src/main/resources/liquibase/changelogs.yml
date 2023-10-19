@@ -1,0 +1,81 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-city
+      author: Voodik
+      changes:
+        - createTable:
+            tableName: city
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: latitude
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: longitude
+                  type: double
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: create-distance-table
+      author: Voodik
+      changes:
+        - createTable:
+            tableName: distance
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: from_city
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: to_city
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: distance
+                  type: double
+                  constraints:
+                    nullable: true
+            foreignKeys:
+              - foreignKey:
+                  baseTableName: distance
+                  baseColumnNames: [ from_city ]
+                  referencedTableName: city
+                  referencedColumnNames: [ id ]
+                  constraintName: fk_distance_from_city
+              - foreignKey:
+                  baseTableName: distance
+                  baseColumnNames: [ to_city ]
+                  referencedTableName: city
+                  referencedColumnNames: [ id ]
+                  constraintName: fk_distance_to_city
+
+  - changeSet:
+      id: set-unique-constraint-in-name-column-in-city
+      author: Voodik
+      changes:
+        - addUniqueConstraint:
+            tableName: city
+            columnNames: name

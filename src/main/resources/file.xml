@@ -1,0 +1,21 @@
+<data>
+    <Cities>
+        <City>
+            <name>Moscow</name>
+            <latitude>46.0</latitude>
+            <longitude>46.0</longitude>
+        </City>
+        <City>
+            <name>New York</name>
+            <latitude>87.0</latitude>
+            <longitude>83.0</longitude>
+        </City>
+    </Cities>
+    <Distances>
+        <Distance>
+            <idFromCity>1</idFromCity>
+            <idToCity>2</idToCity>
+            <distance>50</distance>
+        </Distance>
+    </Distances>
+</data>
