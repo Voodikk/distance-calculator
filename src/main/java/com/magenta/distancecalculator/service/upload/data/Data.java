@@ -8,6 +8,8 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
 
+    // Класс для чтения XML-файла
+
     @XmlElementWrapper(name = "Cities")
     @XmlElement(name = "City")
     private List<CityData> cities = new ArrayList<>();

@@ -3,6 +3,8 @@ package com.magenta.distancecalculator.service.upload.data;
 
 public class DistanceData {
 
+    // Класс для чтения дистанций в XML-файле
+
     private Long idFromCity;
 
     private Long idToCity;

@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Table(name = "distance")
 public class Distance {
 
+    // Сущность Distance
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

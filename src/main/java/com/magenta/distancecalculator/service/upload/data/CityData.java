@@ -2,6 +2,8 @@ package com.magenta.distancecalculator.service.upload.data;
 
 public class CityData {
 
+    // Класс для чтения городов в XML-файле
+
     private String name;
 
     private Double latitude;

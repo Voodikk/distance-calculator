@@ -23,6 +23,8 @@ import java.util.Optional;
 @Service
 public class UploadDataService {
 
+    // Класс загрузки данных из файла в базу данных
+
     private final CityRepository cityRepository;
 
     private final DistanceRepository distanceRepository;
@@ -65,6 +67,7 @@ public class UploadDataService {
         }
     }
 
+    // Метод чтения файла
     private Data readFile(MultipartFile file) throws JAXBException, IOException {
 
         JAXBContext context = JAXBContext.newInstance(Data.class);
@@ -74,6 +77,7 @@ public class UploadDataService {
         return (Data) unmarshaller.unmarshal(stream);
     }
 
+    // Метод преобразования класса для чтения xml-файла(CityData) в сущность City
     private City parseToCityEntity(CityData cityData) {
         City city = new City();
         city.setName(cityData.getName());
@@ -82,7 +86,7 @@ public class UploadDataService {
 
         return city;
     }
-
+    // Метод преобразования класса для чтения xml-файла(DistanceData) в сущность Distance
     private Distance parseToDistanceEntity(DistanceData distanceData) throws Exception {
         Optional<City> temp1 = cityRepository.findCityById(distanceData.getIdFromCity());
         Optional<City> temp2 = cityRepository.findCityById(distanceData.getIdToCity());

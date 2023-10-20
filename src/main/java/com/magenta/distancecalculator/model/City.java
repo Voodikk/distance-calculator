@@ -7,6 +7,8 @@ import java.util.Objects;
 @Table(name = "city")
 public class City {
 
+    // Сущность City
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

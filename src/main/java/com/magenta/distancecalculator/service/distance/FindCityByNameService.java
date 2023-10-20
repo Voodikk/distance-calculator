@@ -19,6 +19,7 @@ public class FindCityByNameService {
         this.rep = rep;
     }
 
+    // Метод преобразования списка названий городов в список городов
     public List<City> find(List<String> namesCity) throws Exception {
         List<City> cities = new ArrayList<>();
         for (String name : namesCity) {

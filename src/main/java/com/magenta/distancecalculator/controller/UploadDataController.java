@@ -10,6 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/distance-calculator")
 public class UploadDataController {
 
+    // Контроллер загрузки файла на сервер
+
     private final UploadDataService service;
 
     @Autowired

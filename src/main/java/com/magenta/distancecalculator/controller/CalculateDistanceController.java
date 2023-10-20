@@ -14,6 +14,8 @@ import java.util.List;
 @RequestMapping("/distance-calculator")
 public class CalculateDistanceController {
 
+    // Контроллер расчёта дистанции
+
     private final CheckTypeOfCalculateService service;
 
     @Autowired

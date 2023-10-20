@@ -9,7 +9,7 @@
 | POST        | /distance-calculator/upload    | HTTP статус 200 без тела                                                                     |
 
 #Список технологий
-1. Java 17
+1. Java 17 (ООП, JAXB, JCF)
 2. Maven 4.0.0
 3. Spring Starter Web/JPA
 4. Hibernate

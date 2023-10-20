@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/distance-calculator")
 public class ListOfAllCitiesController {
 
+    // Контроллер списка городов
+
     private final CityRepository repository;
 
     @Autowired

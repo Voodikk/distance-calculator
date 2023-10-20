@@ -22,6 +22,7 @@ public class CalculateDistanceWithTypeAllService implements Calculability {
         this.serviceMatrix = serviceMatrix;
     }
 
+    // Метод рассчитывания дистанции всеми способами
     @Override
     public Map<String, Double> calculate(List<City> fromCity, List<City> toCity) {
 

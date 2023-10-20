@@ -22,6 +22,7 @@ public class CalculateDistanceWithTypeMatrixService implements Calculability {
         this.repository = repository;
     }
 
+    // Метод рассчитывания дистанции между городами способом Distance Matrix
     @Override
     public Map<String, Double> calculate(List<City> fromCityList, List<City> toCityList) {
 
@@ -29,10 +30,12 @@ public class CalculateDistanceWithTypeMatrixService implements Calculability {
 
         for (City fromCity : fromCityList) {
             for (City toCity : toCityList) {
+                // Если города одинаковые, пропускаем итерацию (метод equals() переопределён в сущности City)
                 if (fromCity.equals(toCity)) {
                     continue;
                 }
                 else {
+                    // Берём значение дистанции из базы данных "distance"
                     Optional<Distance> temp = repository.findDistanceByFromCityAndToCity(fromCity, toCity);
 
                     if (temp.isPresent()) {

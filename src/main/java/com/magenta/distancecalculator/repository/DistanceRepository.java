@@ -11,6 +11,8 @@ import java.util.Optional;
 @Repository
 public interface DistanceRepository extends JpaRepository<Distance, Long> {
 
+    // Репозиторий сущности Distance
+
     @Override
     List<Distance> findAll();
 

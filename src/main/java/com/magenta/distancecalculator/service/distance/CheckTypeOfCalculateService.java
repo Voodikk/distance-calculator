@@ -14,6 +14,8 @@ import java.util.List;
 @Service
 public class CheckTypeOfCalculateService {
 
+    // Класс проверки типа расчёта
+
     private final FindCityByNameService findCityByNameService;
 
     private final CalculateDistanceWithTypeMatrixService calculateDistanceWithTypeMatrixService;
@@ -22,6 +24,7 @@ public class CheckTypeOfCalculateService {
 
     private final CalculateDistanceWithTypeAllService calculateDistanceWithTypeAllService;
 
+    // Метод проверки
     @Autowired
     public CheckTypeOfCalculateService(FindCityByNameService findCityByNameService, CalculateDistanceWithTypeMatrixService calculateDistanceWithTypeMatrixService, CalculateDistanceWithTypeCrowFlightService calculateDistanceWithTypeCrowFlightService, CalculateDistanceWithTypeAllService calculateDistanceWithTypeAllService) {
         this.findCityByNameService = findCityByNameService;
@@ -34,9 +37,9 @@ public class CheckTypeOfCalculateService {
                                    List<String> fromCities,
                                    List<String> toCities) {
 
+        // Преобразовываем список названий городов в список городов
         List<City> fromCityList;
         List<City> toCityList;
-
         try {
             fromCityList = findCityByNameService.find(fromCities);
             toCityList = findCityByNameService.find(toCities);
@@ -45,6 +48,7 @@ public class CheckTypeOfCalculateService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
 
+        // Проверка на тип вычисления
         if (calculateType.equalsIgnoreCase("Crowflight")) {
             return ResponseEntity.ok(calculateDistanceWithTypeCrowFlightService.calculate(fromCityList, toCityList));
         }

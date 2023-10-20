@@ -9,6 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface CityRepository extends JpaRepository<City, Long> {
+
+    // Репозиторий сущности City
+
     @Override
     List<City> findAll();
 

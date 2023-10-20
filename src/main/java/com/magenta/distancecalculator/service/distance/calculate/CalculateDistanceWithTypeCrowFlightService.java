@@ -13,6 +13,8 @@ public class CalculateDistanceWithTypeCrowFlightService implements Calculability
 
     private static final int RADIUS_OF_EARTH = 6371;
 
+
+    // Метод рассчитывания дистанции способом Crowflight
     @Override
     public Map<String, Double> calculate(List<City> fromCityList, List<City> toCityList) {
 
@@ -20,10 +22,14 @@ public class CalculateDistanceWithTypeCrowFlightService implements Calculability
 
         for (City fromCity : fromCityList) {
             for (City toCity : toCityList) {
+
+                // Если города одинаковые, пропускаем итерацию (метод equals() переопределён в сущности City)
                 if (fromCity.equals(toCity)) {
                     continue;
                 }
                 else {
+                    // Решение по формуле нахождения расстояния между двумя точками на сфере
+
                     double latDistance = Math.toRadians(toCity.getLatitude() - fromCity.getLatitude());
                     double lonDistance = Math.toRadians(toCity.getLongitude() - fromCity.getLongitude());
 
